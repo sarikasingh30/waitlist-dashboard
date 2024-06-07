@@ -1,0 +1,203 @@
+{
+  "services": [
+    {
+      "id": 1,
+      "name": "National Tennis Court",
+      "type": "Class Pack",
+      "status": "Public"
+    },
+    {
+      "id": 2,
+      "name": "National Tennis Class",
+      "type": "Class",
+      "status": "Private"
+    },
+
+    {
+      "id": 1,
+      "name": "National Tennis Court 1",
+      "type": "Facility",
+      "status": "Draft"
+    },
+    {
+      "id": 2,
+      "name": "National Tennis Court 2",
+      "type": "Appointment",
+      "status": "Disable"
+    },
+    {
+      "id": 3,
+      "name": "Cooking Classes 3",
+      "type": "General Items",
+      "status": "Public"
+    },
+    {
+      "id": 4,
+      "name": "Fitness Sessions 4",
+      "type": "General Items",
+      "status": "Private"
+    },
+    {
+      "id": 5,
+      "name": "Tournaments 5",
+      "type": "Facility",
+      "status": "Disable"
+    },
+    {
+      "id": 6,
+      "name": "Cooking Classes 6",
+      "type": "Appointment",
+      "status": "Disable"
+    },
+    {
+      "id": 7,
+      "name": "Tournaments 7",
+      "type": "Class",
+      "status": "Disable"
+    },
+    {
+      "id": 8,
+      "name": "Tournaments 8",
+      "type": "General Items",
+      "status": "Draft"
+    },
+    {
+      "id": 9,
+      "name": "Cooking Classes 9",
+      "type": "Membership",
+      "status": "Public"
+    },
+    {
+      "id": 10,
+      "name": "National Tennis Court 10",
+      "type": "Facility",
+      "status": "Public"
+    },
+    {
+      "id": 11,
+      "name": "National Tennis Court 11",
+      "type": "Membership",
+      "status": "Private"
+    },
+    {
+      "id": 12,
+      "name": "National Badminton Class 12",
+      "type": "Facility",
+      "status": "Public"
+    },
+    {
+      "id": 13,
+      "name": "National Badminton Class 13",
+      "type": "Appointment",
+      "status": "Disable"
+    },
+    {
+      "id": 14,
+      "name": "National Badminton Class 14",
+      "type": "Facility",
+      "status": "Private"
+    },
+    {
+      "id": 15,
+      "name": "Tournaments 15",
+      "type": "Facility",
+      "status": "Public"
+    },
+    {
+      "id": 16,
+      "name": "Cooking Classes 16",
+      "type": "Class Pack",
+      "status": "Disable"
+    },
+    {
+      "id": 17,
+      "name": "Cooking Classes 17",
+      "type": "Appointment",
+      "status": "Private"
+    },
+    {
+      "id": 18,
+      "name": "National Tennis Court 18",
+      "type": "Facility",
+      "status": "Draft"
+    },
+    {
+      "id": 19,
+      "name": "Cooking Classes 19",
+      "type": "Facility",
+      "status": "Public"
+    },
+    {
+      "id": 20,
+      "name": "National Badminton Class 20",
+      "type": "Appointment",
+      "status": "Public"
+    },
+    {
+      "id": 21,
+      "name": "National Tennis Court 21",
+      "type": "Class",
+      "status": "Private"
+    },
+    {
+      "id": 22,
+      "name": "Fitness Sessions 22",
+      "type": "Class",
+      "status": "Public"
+    },
+    {
+      "id": 23,
+      "name": "National Badminton Class 23",
+      "type": "Facility",
+      "status": "Disable"
+    },
+    {
+      "id": 24,
+      "name": "Fitness Sessions 24",
+      "type": "Appointment",
+      "status": "Disable"
+    },
+    {
+      "id": 25,
+      "name": "Cooking Classes 25",
+      "type": "Appointment",
+      "status": "Public"
+    },
+    {
+      "id": 26,
+      "name": "National Tennis Court 26",
+      "type": "General Items",
+      "status": "Public"
+    },
+    {
+      "id": 27,
+      "name": "Fitness Sessions 27",
+      "type": "General Items",
+      "status": "Disable"
+    },
+    {
+      "id": 28,
+      "name": "Cooking Classes 28",
+      "type": "General Items",
+      "status": "Private"
+    },
+    {
+      "id": 29,
+      "name": "National Badminton Class 29",
+      "type": "Facility",
+      "status": "Private"
+    },
+    {
+      "id": 30,
+      "name": "National Tennis Court 30",
+      "type": "General Items",
+      "status": "Disable"
+    },
+    {
+      "id": 31,
+      "name": "National Badminton Class 31",
+      "type": "Facility",
+      "status": "Public"
+    }
+  ]
+}

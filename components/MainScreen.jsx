@@ -18,7 +18,6 @@ export const MainScreen = ({SlideisOpen}) => {
 
         });
       } catch (error) {
-        // Handle errors
         console.error("Error fetching single product:", error);
         throw error;
       }

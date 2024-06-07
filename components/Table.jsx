@@ -1,4 +1,4 @@
-import axios from "axios";
+import { GoDotFill } from "react-icons/go"
 import {useState } from "react";
 import { FaRegCalendar, FaRegDotCircle } from "react-icons/fa";
 import { FaRegUser } from "react-icons/fa6";
@@ -105,50 +105,46 @@ console.log(filterData)
                 <tr key={el.id}>
                   <td className="p-4 border-b border-blue-gray-50">
                     <div className="flex items-center gap-3">
-                      
-                        <p className="text-center block antialiased font-sans text-sm leading-normal text-blue-gray-900 font-normal">
+                        <p className="text-center block antialiased font-sans text-sm text-blue-gray-900 font-normal">
                           {el.createdOn}
                         </p>
-                      
                     </div>
                   </td>
                   <td className="p-4 border-b border-blue-gray-50">
-                    <div className="flex items-center gap-3">
-                      <p className="text-center block antialiased font-sans text-sm leading-normal text-blue-gray-900 font-normal">
+                      <p className="text-center block antialiased font-sans text-sm text-blue-gray-900 font-normal">
                         {el.payer}
                       </p>
-                    </div>
+                    
                   </td>
                   <td className="p-4 border-b border-blue-gray-50">
                     <div className="w-max">
-                      <div className="grid items-center font-sans font-bold uppercase whitespace-nowrap select-none bg-green-500/20 text-green-600 py-1 px-2 text-xs rounded-md">
-                        <span className="">{el.status}</span>
+                      <div className={`flex flex-row font-sans select-none ${el.status=="Inactive"?"bg-slate-100 text-black":el.status=="Active"?"bg-green-100 text-green-700":"bg-blue-100 text-blue-700"} py-1 px-2 text-xs rounded-md`}>
+                        <GoDotFill/><span className="">{el.status}</span>
                       </div>
                     </div>
                   </td>
                   <td className="p-4 border-b border-blue-gray-50">
-                    
-                      <p className="text-center block antialiased font-sans text-sm leading-normal text-blue-gray-900 font-normal">
+                      <p className="text-center block antialiased font-sans text-sm text-blue-gray-900 font-normal">
                         {el.email}
                       </p>
                      
                   </td>
                   <td className="p-4 border-b border-blue-gray-50">
-                    <p className="text-center block antialiased font-sans text-sm leading-normal text-blue-gray-900 font-normal">
+                    <p className="text-center block antialiased font-sans text-sm text-blue-gray-900 font-normal">
                       {`+91 +${el.payerPhone}`}
                     </p>
                   </td>
 
                   <td className="p-4 border-b border-blue-gray-50">
-                    <p className="text-center block antialiased font-sans text-sm leading-normal text-blue-gray-900 font-normal">
+                    <p className="text-center block antialiased font-sans text-sm text-blue-gray-900 font-normal">
                       {el.service}
                     </p>
-                  </td> <td className="p-4 border-b border-blue-gray-50">
-                    <p className="text-center block antialiased font-sans text-sm leading-normal text-blue-gray-900 font-normal">
+                  </td> 
+                  <td className="p-4 border-b border-blue-gray-50">
+                    <p className="text-center block antialiased font-sans text-sm text-blue-gray-900 font-normal">
                       {el.scheduled}
                     </p>
                   </td>
-                  
                 </tr>
               );
             })}
