@@ -1,6 +1,6 @@
-import { useState, useEffect} from "react";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
+import { useState, useEffect} from "react";
 import { LuFilter } from "react-icons/lu";
 import { Filter3 } from "./Filter3";
 
@@ -32,18 +32,18 @@ const Filters = ({ filterData, setFilterData, waitlistData }) => {
     const selectedTimeRange = e.target.value;
     setTimeRange(selectedTimeRange);
   };
-  const filterDataFn = (selectedTimeRange) => {
+  const filterDataFn = (timeRange) => {
     let filtered = [];
     const currentDate = new Date();
-    switch (selectedTimeRange) {
+    switch (timeRange) {
       case "All time":
         filtered = filterData;
         break;
       case "Last 30 days":
-        console.log(selectedTimeRange, currentDate, filterData);
+        
         filtered = waitlistData.filter((item) => {
           const itemDate = new Date(item.createdOn);
-          console.log(itemDate);
+    
           if ((currentDate - itemDate) / (1000 * 60 * 60 * 24) <= 30)
             return item;
         });
@@ -59,7 +59,6 @@ const Filters = ({ filterData, setFilterData, waitlistData }) => {
         });
         break;
       case "Last month":
-        // console.log(filterData,selectedTimeRange)
 
         const lastMonth = new Date(
           currentDate.setMonth(currentDate.getMonth() - 1)
@@ -126,7 +125,7 @@ const Filters = ({ filterData, setFilterData, waitlistData }) => {
         filtered = filterData;
     }
     setFilterData(filtered);
-    console.log("set ", filterData);
+
   };
 
 
@@ -254,7 +253,7 @@ const Filters = ({ filterData, setFilterData, waitlistData }) => {
                             onChange={(date) => setStartDate(date)}
                             className="w-full px-3 py-2 border rounded"
                             placeholderText="Pick a date"
-                            disabled={timeRange !== "Custom"}
+                            // disabled={timeRange != "Custom"}
                           />
                         </div>
                         <div>
@@ -269,7 +268,7 @@ const Filters = ({ filterData, setFilterData, waitlistData }) => {
                             onChange={(date) => setEndDate(date)}
                             className="w-full px-3 py-2 border rounded"
                             placeholderText="Pick a date"
-                            disabled={timeRange !== "Custom"}
+                            // disabled={timeRange != "Custom"}
                           />
                         </div>
                       </div>

@@ -12,9 +12,9 @@ export const MainScreen = ({SlideisOpen}) => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        await axios.get(`http://localhost:8080/waitlistData`).then((res) => {
-          setWaitlistData(res.data) 
-          setFilterData(res.data)
+        await axios.get(`https://sarikasingh30.github.io/data-api-agent/waitlistdata.json`).then((res) => {
+          setWaitlistData(res.data.waitlistData) 
+          setFilterData(res.data.waitlistData)
 
         });
       } catch (error) {

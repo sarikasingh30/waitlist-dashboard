@@ -9,7 +9,6 @@ export default function Table({filterData}) {
     "CreatedOn",""
   ]);
  
-console.log(filterData)
   const handleColumnChange = (column) => {
     setColumns(
       columns.includes(column)

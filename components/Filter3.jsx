@@ -14,8 +14,8 @@ export const Filter3 = () => {
   useEffect(() => {
     const fetchSData = async () => {
       try {
-        await axios.get(`http://localhost:8081/services`).then((res) => {
-          setServiceData(res.data);
+        await axios.get(`https://sarikasingh30.github.io/data-api-agent/services.json`).then((res) => {
+          setServiceData(res.data.services);
         });
       } catch (error) {
         console.error("Error fetching single product:", error);
@@ -34,6 +34,7 @@ export const Filter3 = () => {
   // Set the Tag based Criteria........................................................................
   const handleSetCond = (e, x) => {
     let newS = { [x]: e.target.value };
+
     setSearchCond({ ...searchCond, ...newS });
   };
 
