@@ -33,6 +33,7 @@ const Filters = ({
     setSearchInput("");
     setSearchResults([]);
     setSelectedPeople([]);
+    setFilterData(waitlistData)
   };
 
   //  Time Filter..........................................................................
