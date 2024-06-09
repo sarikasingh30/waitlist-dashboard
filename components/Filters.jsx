@@ -1,10 +1,22 @@
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
-import { useState, useEffect} from "react";
+import { useState, useEffect } from "react";
 import { LuFilter } from "react-icons/lu";
 import { Filter3 } from "./Filter3";
+import { TbRefresh } from "react-icons/tb";
+import { MdOutlineFileDownload } from "react-icons/md";
+import { PiSquareSplitHorizontalLight } from "react-icons/pi";
+import { TableCSelection } from "./TableCSelection";
 
-const Filters = ({ filterData, setFilterData, waitlistData }) => {
+const Filters = ({
+  filterData,
+  setFilterData,
+  waitlistData,
+  showTModal,
+  setShowTModal,
+  selectedColumns,
+  setSelectedColumns
+}) => {
   const [isOpen, setIsOpen] = useState(false);
   const [selectedTab, setSelectedTab] = useState("scheduledDate");
   const [startDate, setStartDate] = useState(null);
@@ -23,10 +35,6 @@ const Filters = ({ filterData, setFilterData, waitlistData }) => {
     setSelectedPeople([]);
   };
 
- 
-
-
-
   //  Time Filter..........................................................................
   const handleChange = (e) => {
     const selectedTimeRange = e.target.value;
@@ -40,17 +48,16 @@ const Filters = ({ filterData, setFilterData, waitlistData }) => {
         filtered = filterData;
         break;
       case "Last 30 days":
-        
         filtered = waitlistData.filter((item) => {
-          const itemDate = new Date(item.createdOn);
-    
+          const itemDate = new Date(item.scheduled);
+
           if ((currentDate - itemDate) / (1000 * 60 * 60 * 24) <= 30)
             return item;
         });
         break;
       case "This month":
         filtered = waitlistData.filter((item) => {
-          const itemDate = new Date(item.createdOn);
+          const itemDate = new Date(item.scheduled);
           if (
             itemDate.getMonth() === currentDate.getMonth() &&
             itemDate.getFullYear() === currentDate.getFullYear()
@@ -59,12 +66,11 @@ const Filters = ({ filterData, setFilterData, waitlistData }) => {
         });
         break;
       case "Last month":
-
         const lastMonth = new Date(
           currentDate.setMonth(currentDate.getMonth() - 1)
         );
         filtered = waitlistData.filter((item) => {
-          const itemDate = new Date(item.createdOn);
+          const itemDate = new Date(item.scheduled);
           if (
             itemDate.getMonth() == lastMonth.getMonth() &&
             itemDate.getFullYear() === lastMonth.getFullYear()
@@ -75,7 +81,7 @@ const Filters = ({ filterData, setFilterData, waitlistData }) => {
       case "This quarter":
         const currentQuarter = Math.floor((currentDate.getMonth() + 3) / 3);
         filtered = waitlistData.filter((item) => {
-          const itemDate = new Date(item.createdOn);
+          const itemDate = new Date(item.scheduled);
           const itemQuarter = Math.floor((itemDate.getMonth() + 3) / 3);
           return (
             itemQuarter === currentQuarter &&
@@ -89,7 +95,7 @@ const Filters = ({ filterData, setFilterData, waitlistData }) => {
         const previousQuarter =
           Math.floor((currentDate.getMonth() + 3) / 3) - 2;
         filtered = waitlistData.filter((item) => {
-          const itemDate = new Date(item.createdOn);
+          const itemDate = new Date(item.scheduled);
           const itemQuarter = Math.floor((itemDate.getMonth() + 3) / 3);
           return (
             itemQuarter === previousQuarter &&
@@ -99,7 +105,7 @@ const Filters = ({ filterData, setFilterData, waitlistData }) => {
         break;
       case "This year":
         filtered = waitlistData.filter((item) => {
-          const itemDate = new Date(item.createdOn);
+          const itemDate = new Date(item.scheduled);
           return itemDate.getFullYear() === currentDate.getFullYear();
         });
         break;
@@ -107,7 +113,7 @@ const Filters = ({ filterData, setFilterData, waitlistData }) => {
         // console.log(filterData,selectedTimeRange)
 
         filtered = waitlistData.filter((item) => {
-          const itemDate = new Date(item.createdOn);
+          const itemDate = new Date(item.scheduled);
           return itemDate.getFullYear() === currentDate.getFullYear() - 1;
         });
         break;
@@ -116,7 +122,7 @@ const Filters = ({ filterData, setFilterData, waitlistData }) => {
           const startVal = new Date(startDate);
           const endVal = new Date(endDate);
           filtered = waitlistData.filter((item) => {
-            const itemDate = new Date(item.createdOn);
+            const itemDate = new Date(item.scheduled);
             return itemDate >= startVal && itemDate <= endVal;
           });
         }
@@ -125,9 +131,7 @@ const Filters = ({ filterData, setFilterData, waitlistData }) => {
         filtered = filterData;
     }
     setFilterData(filtered);
-
   };
-
 
   // Search People Filter ...................................................................
 
@@ -135,8 +139,6 @@ const Filters = ({ filterData, setFilterData, waitlistData }) => {
     const query = e.target.value;
     setSearchInput(query);
   };
-
-
 
   useEffect(() => {
     if (searchInput.length > 0) {
@@ -177,16 +179,30 @@ const Filters = ({ filterData, setFilterData, waitlistData }) => {
 
   return (
     <>
-      <div className="px-3 h-[5%]">
-        <button onClick={() => setIsOpen(!isOpen)} className="p-2">
-          <LuFilter />
+      <div className="p-1 h-[5%] flex flex-row justify-between items-center">
+        <button
+          onClick={() => setIsOpen(!isOpen)}
+          className="flex flex-row items-center bg-slate-100 rounded-lg p-0 md:p-1 lg:p-1"
+          aria-label="Filter"
+        >
+          <LuFilter aria-label="Filter" />{" "}
+          <span className="hidden text-sm  md:block lg:block  lg:text-lg md:text-lg">
+            Add Filter
+          </span>
         </button>
+        <div className="flex flex-row items-center lg:justify-around md:justify-around lg:w-2/5 md:w-2/5">
+          <input type="text" className="border rounded p-0" /> <TbRefresh />
+          <button onClick={() => setShowTModal(!showTModal)}>
+            <PiSquareSplitHorizontalLight />
+          </button>
+          <MdOutlineFileDownload />
+        </div>
 
         {isOpen && (
           <div className="fixed inset-0 bg-gray-900 bg-opacity-50 flex justify-center items-center">
             <div className="bg-white p-6 rounded-lg shadow-lg w-3/4 max-w-4xl">
-              <div className="flex">
-                <div className="w-1/4 border-r pr-4">
+              <div className="flex flex-col lg:flex-row md:flex-row">
+                <div className="lg:w-1/4 md:w-1/4 lg:border-r md:border-r pr-4">
                   <button
                     className={`block w-full text-left px-4 py-2 ${
                       selectedTab === "scheduledDate" ? "bg-gray-200" : ""
@@ -212,15 +228,9 @@ const Filters = ({ filterData, setFilterData, waitlistData }) => {
                     Services / Products
                   </button>
                 </div>
-                <div className="w-3/4 pl-4">
+                <div className="lg:w-3/4 md:w-3/4 pl-4">
                   {selectedTab === "scheduledDate" && (
                     <div>
-                      <label
-                        className="block text-gray-700 font-bold mb-2"
-                        htmlFor="timeRange"
-                      >
-                        Show orders for
-                      </label>
                       <div className="relative mb-4">
                         <select
                           id="timeRange"
@@ -253,7 +263,9 @@ const Filters = ({ filterData, setFilterData, waitlistData }) => {
                             onChange={(date) => setStartDate(date)}
                             className="w-full px-3 py-2 border rounded"
                             placeholderText="Pick a date"
-                            // disabled={timeRange != "Custom"}
+                            disabled={
+                              timeRange == "All" || timeRange == "Last Month"
+                            }
                           />
                         </div>
                         <div>
@@ -276,7 +288,6 @@ const Filters = ({ filterData, setFilterData, waitlistData }) => {
                   )}
                   {selectedTab === "people" && (
                     <div>
-                      
                       <input
                         type="text"
                         id="peopleFilter"
@@ -306,31 +317,39 @@ const Filters = ({ filterData, setFilterData, waitlistData }) => {
                               ))}
                             </div>
                           )}
-                          {searchResults.length>0 && (<div className="results">
-                            <h4>Showing {searchResults.length} results matching "{searchInput}":</h4>
-                            {searchResults.map((person) => (
-                              <div key={person.id} className="flex flex-row m-0.5">
-                                <label>
-                                  <input
-                                    type="checkbox"
-                                    checked={isSelected(person.id)}
-                                    onChange={() =>
-                                      handleSelectPerson(person.id)
-                                    }
-                                  />
-                                  {person.payer}
-                                </label>
-                                <div className="flex flex-row font-sans ml-2 bg-slate-100 text-black p-1 text-xs rounded-md">
-                        <span className="">payer</span>
-                      </div>
-                              </div>
-                            ))}
-                          </div>)}
+                          {searchResults.length > 0 && (
+                            <div className="results">
+                              <h4>
+                                Showing {searchResults.length} results matching
+                                "{searchInput}":
+                              </h4>
+                              {searchResults.map((person) => (
+                                <div
+                                  key={person.id}
+                                  className="flex flex-row m-0.5"
+                                >
+                                  <label>
+                                    <input
+                                      type="checkbox"
+                                      checked={isSelected(person.id)}
+                                      onChange={() =>
+                                        handleSelectPerson(person.id)
+                                      }
+                                    />
+                                    {person.payer}
+                                  </label>
+                                  <div className="flex flex-row font-sans ml-2 bg-slate-100 text-black p-1 text-xs rounded-md">
+                                    <span className="">payer</span>
+                                  </div>
+                                </div>
+                              ))}
+                            </div>
+                          )}
                         </div>
                       </div>
                     </div>
                   )}
-                  {selectedTab === "servicesProducts" && <Filter3/>}
+                  {selectedTab === "servicesProducts" && <Filter3 />}
                 </div>
               </div>
               <div className="flex justify-end mt-4">
@@ -349,6 +368,15 @@ const Filters = ({ filterData, setFilterData, waitlistData }) => {
               </div>
             </div>
           </div>
+        )}
+
+        {showTModal && (
+          <TableCSelection
+            showTModal={showTModal}
+            setShowTModal={setShowTModal} 
+            selectedColumns={selectedColumns}
+            setSelectedColumns={setSelectedColumns}
+          />
         )}
       </div>
     </>

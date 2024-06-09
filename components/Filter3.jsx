@@ -7,9 +7,7 @@ export const Filter3 = () => {
   const [searchSInput, setSearchSInput] = useState("");
   const [filteredSResults, setFilteredSResults] = useState([]);
   const [searchCond, setSearchCond] = useState({});
-
   const [filteredTResults, setFilteredTResults] = useState([]);
-  const [selectedSItem, setSelectedSItem] = useState(null);
 
   useEffect(() => {
     const fetchSData = async () => {
@@ -25,6 +23,7 @@ export const Filter3 = () => {
     fetchSData();
   }, []);
 
+  
   // Set the Search by Name searchInput ..................................................................
   const handleSearch = (e) => {
     const input = e.target.value.toLowerCase();
@@ -49,13 +48,12 @@ export const Filter3 = () => {
         setFilteredSResults([]);
       }
     } else {
-      if (searchCond.type !== "show" && searchCond.status !== "show") {
+      if (searchCond.type !== "show" || searchCond.status !== "show") {
         let results = serviceData.filter(
           (item) => item.type == searchCond.type
         );
         let fullData = results
-          .filter((item) => item.status == searchCond.status)
-          .slice(0, 10);
+          .filter((item) => item.status == searchCond.status).slice(0, 10);
         setFilteredTResults(fullData);
       } else {
         setFilteredTResults([]);
@@ -71,6 +69,7 @@ export const Filter3 = () => {
             type="radio"
             id="search-by-name"
             name="search-option"
+            defaultChecked={true}
             onChange={() => setFilterCriteria("name")}
             className="mx-2"
           />
@@ -168,10 +167,10 @@ export const Filter3 = () => {
               <option value="Draft">Draft</option>
             </select>
 
-            {filteredTResults > 0 && (
+            
               <div className="results">
                 <h4>
-                  Showing {filteredTResults.length} results matching " type=
+                  Showing {filteredTResults.length} results matching " type =
                   {searchCond.type} and status = {searchCond.status}" :
                 </h4>
                 {filteredTResults.map((el) => (
@@ -207,7 +206,7 @@ export const Filter3 = () => {
                   </div>
                 ))}
               </div>
-            )}
+            
           </div>
         )}
       </div>
