@@ -3,6 +3,7 @@ const columns = [
   "Created On",
   "Payer",
   "Status",
+  "Email",
   "Payer Phone",
   "Services",
   "Scheduled",

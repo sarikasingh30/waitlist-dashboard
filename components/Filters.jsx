@@ -173,7 +173,7 @@ const Filters = ({
     setSelectedPeople(selectedPeople.filter((p) => p.id !== person));
   };
   const applyFilters = () => {
-    // Apply filter logic here
+
     filterDataFn(timeRange);
     setIsOpen(false);
   };
