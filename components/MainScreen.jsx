@@ -16,7 +16,7 @@ export const MainScreen = ({ SlideisOpen }) => {
     "Status",
     "Email",
     "Payer Phone",
-    "Service",
+    "Services",
     "Scheduled"
   ]);
   useEffect(() => {
