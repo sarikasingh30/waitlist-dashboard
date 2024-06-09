@@ -79,7 +79,7 @@ export default function Table({filterData,selectedColumns}) {
                   </td>)}
                   {selectedColumns.includes("Status")&&(<td className="p-4 border-b border-blue-gray-50">
                     <div className="w-max">
-                      <div className={`flex flex-row font-sans select-none ${el.status=="Inactive"?"bg-slate-100 text-black":el.status=="Active"?"bg-green-100 text-green-700":"bg-blue-100 text-blue-700"} py-1 px-2 text-xs rounded-md`}>
+                      <div className={`flex flex-row items-center font-sans select-none ${el.status=="Inactive"?"bg-slate-100 text-black":el.status=="Active"?"bg-green-100 text-green-700":"bg-blue-100 text-blue-700"} py-1 px-2 text-xs rounded-md`}>
                         <GoDotFill/><span className="">{el.status}</span>
                       </div>
                     </div>

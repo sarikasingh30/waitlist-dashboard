@@ -192,7 +192,7 @@ const Filters = ({
           </span>
         </button>
         <div className="flex flex-row items-center lg:justify-around md:justify-around lg:w-2/5 md:w-2/5">
-          <input type="text" className="border rounded p-0" /> <TbRefresh />
+          <input type="text" className="border rounded p-0" /> <button onClick={()=>setFilterData(waitlistData)}><TbRefresh /></button>
           <button onClick={() => setShowTModal(!showTModal)}>
             <PiSquareSplitHorizontalLight />
           </button>
