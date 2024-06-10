@@ -10,6 +10,7 @@ export const MainScreen = ({ SlideisOpen }) => {
   const [waitlistData, setWaitlistData] = useState([]);
   const [filterData, setFilterData] = useState([]);
   const [showTModal, setShowTModal] = useState(false);
+  const [currentPage, setCurrentPage] = useState(1);
   const [selectedColumns, setSelectedColumns] = useState([
     "Created On",
     "Payer",
@@ -58,10 +59,11 @@ export const MainScreen = ({ SlideisOpen }) => {
         showTModal={showTModal}
         selectedColumns={selectedColumns}
         setSelectedColumns={setSelectedColumns}
+        setCurrentPage={setCurrentPage}
       />
 
       <div className="h-[70%]">
-        <Table filterData={filterData} showTModal={showTModal} selectedColumns={selectedColumns} />
+        <Table filterData={filterData} showTModal={showTModal} selectedColumns={selectedColumns} currentPage={currentPage} setCurrentPage={setCurrentPage}/>
       </div>
     </div>
   );

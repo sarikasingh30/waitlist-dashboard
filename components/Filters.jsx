@@ -15,7 +15,8 @@ const Filters = ({
   showTModal,
   setShowTModal,
   selectedColumns,
-  setSelectedColumns
+  setSelectedColumns,
+  setCurrentPage
 }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [selectedTab, setSelectedTab] = useState("scheduledDate");
@@ -175,7 +176,9 @@ const Filters = ({
   const applyFilters = () => {
 
     filterDataFn(timeRange);
+    setCurrentPage(1)
     setIsOpen(false);
+
   };
 
   return (

@@ -5,8 +5,8 @@ import { FaRegUser } from "react-icons/fa6";
 import { LuHash } from "react-icons/lu";
 import { Pagination } from "./Pagination";
 
-export default function Table({filterData,selectedColumns}) {
-  const [currentPage, setCurrentPage] = useState(1);
+export default function Table({filterData,selectedColumns ,currentPage,setCurrentPage}) {
+ 
   const [perPage, setPerPage] = useState(5);
 
  
