@@ -23,17 +23,13 @@ export const MainScreen = ({ SlideisOpen }) => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        await axios
-          .get(
-            `https://sarikasingh30.github.io/data-api-agent/waitlistdata.json`
-          )
-          .then((res) => {
-            setWaitlistData(res.data.waitlistData);
-            setFilterData(res.data.waitlistData);
-          });
+        const res = await axios.get(
+          `https://sarikasingh30.github.io/data-api-agent/waitlistdata.json`
+        );
+        setWaitlistData(res.data.waitlistData);
+        setFilterData(res.data.waitlistData);
       } catch (error) {
         console.error("Error fetching single product:", error);
-        throw error;
       }
     };
     fetchData();

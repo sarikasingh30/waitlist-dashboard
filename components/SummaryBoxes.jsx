@@ -5,7 +5,7 @@ const SummaryBoxes = ({waitlistData}) => {
     let NewlyCount=NewlyD.length
 
     return (
-      <div className="h-[5%] w-full grid gap-1 grid-cols-3 px-2" aria-label="summary-box">
+      <div className="md:h-[5%] lg:h-[5%] w-full grid gap-1 grid-cols-3 px-2" aria-label="summary-box">
         <div className="bg-white rounded-lg shadow p-2" aria-label="Waitlist Count">
           <p className=" text-gray-600 text-sm lg:text-md">{`All Waitlists ${waitlistData.length}`}</p>
         </div>

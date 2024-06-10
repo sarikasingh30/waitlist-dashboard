@@ -19,6 +19,11 @@ export const Pagination = ({
       setCurrentPage(currentPage + 1);
     }
   };
+const handleSelectPerPage=(e)=>{
+  setPerPage(e.target.value)
+  setCurrentPage(1)
+}
+
   const renderPageNumbers = () => {
     const pageNumbers = [];
     for (let i = 1; i <= totalPages; i++) {
@@ -26,7 +31,7 @@ export const Pagination = ({
         <button
           key={i}
           aria-current="page"
-          className="relative inline-flex items-center px-4 py-2 text-sm font-semibold text-gray-900  ring-gray-300 hover:bg-gray-200 focus:z-20 focus:outline-offset-0"
+          className="relative inline-flex items-center px-4 py-2 text-sm font-semibold active:bg-grey-200 text-gray-900  ring-gray-300 hover:bg-gray-200 focus:z-20 focus:outline-offset-0"
           onClick={() => setCurrentPage(i)}
         >
           {i}
@@ -65,7 +70,7 @@ export const Pagination = ({
                 max={20}
                 step={1}
                 aria-label="Number of elements per page"
-                onChange={(e) => setPerPage(e.target.value)}
+                onChange={(e)=>handleSelectPerPage(e)}
               />
             </span>
             out of
@@ -81,7 +86,7 @@ export const Pagination = ({
             <div
               onClick={handlePrevPage}
               disabled={currentPage === 1}
-              className="relative inline-flex items-center rounded-l-md px-2  text-gray-400 hover:bg-gray-50 focus:z-20 focus:outline-offset-0"
+              className="relative inline-flex items-center rounded-l-md px-2 cursor-pointer text-gray-400 hover:bg-gray-50 focus:z-20 focus:outline-offset-0"
             >
               <svg
                 className="h-5 w-5"
@@ -102,7 +107,7 @@ export const Pagination = ({
             <div
               onClick={handleNextPage}
               disabled={currentPage === totalPages}
-              className="relative inline-flex items-center rounded-r-md px-2 py-2 text-gray-400 focus:z-20 focus:outline-offset-0"
+              className="relative inline-flex items-center cursor-pointer rounded-r-md px-2 py-2 text-gray-400 focus:z-20 focus:outline-offset-0"
             >
               <span className="">Next</span>
               <svg
