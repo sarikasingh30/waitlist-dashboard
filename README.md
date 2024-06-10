@@ -1,40 +1,85 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Front-End Developer Assessment Project
 
-## Getting Started
+## Introduction
+This project is a part of the Front-End Developer assessment. The objective is to develop a web application based on the provided design mock-up using Next.js and Tailwind CSS. The project includes the implementation of various components such as summary boxes, filters, and tables. Additionally, interactivity features like a modal for filters are incorporated, along with subtle animations for scrolling and loading interactions to enhance the user experience.
 
-First, run the development server:
+## Project Type
+Frontend
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## Deployed App
+Frontend: [Live Demo](https://waitlist-dashboard-eight.vercel.app/)
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+## Video Walkthrough of the Project
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+[Video Walkthrough](https://drive.google.com/file/d/1fuqOIrV_oycnCpX4caWbC9zMigpaow6P/view?usp=sharing)
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+## Features
+**Tailwind CSS Implementation:** The project leverages Tailwind CSS for styling, ensuring rapid development and easy maintenance.
 
-## Learn More
+**Responsive Layout:** The layout is optimized for both mobile and desktop views, ensuring a seamless user experience across devices.
 
-To learn more about Next.js, take a look at the following resources:
+**Interactive Components:** Includes interactive elements such as summary boxes, filters with a modal, and smooth animations for enhanced user engagement.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+**Data Pagination:** Implements pagination for efficiently managing large datasets and enhancing performance.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+**Dynamic Content Rendering:** Dynamically renders content based on user-selected columns, providing flexibility and customization.
 
-## Deploy on Vercel
+**Filters Implementation:** The project incorporates a modal for filters, allowing users to customize their view of the data. When users click the Filters Button, the modal opens, providing options to apply filters based on various criteria such as date, status, or any other relevant parameters. This feature enhances the user experience by enabling personalized data display and analysis.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Design Decisions or Assumptions
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+**Tailwind CSS Selection:** Tailwind CSS is chosen for its utility-first approach, enabling quick prototyping and consistent styling across the application.
+**Accessibility:** Accessibility considerations such as ARIA labels and keyboard navigation are integrated to enhance usability for all users.
+
+## Installation & Getting Started
+To run the project locally, follow these steps:
+
+### Clone the repository
+
+    git clone https://github.com/sarikasingh30/waitlist-dashboard.git
+    
+
+### Navigate to the project directory
+
+    cd waitlist-dashboard
+
+### Install dependencies
+ 
+    npm install 
+
+
+### Start the application
+
+    npm run dev
+
+
+
+
+## Usage
+
+![alt text](image.png)
+
+![alt text](image-1.png)
+
+![alt text](image-2.png)
+
+![alt text](image-3.png)
+
+![alt text](image-4.png)
+
+![alt text](image-5.png)
+
+
+## Technology Stack
+
+**Next.js:** Provides server-side rendering and routing capabilities for React applications.
+
+**React.js:** A JavaScript library for building user interfaces.
+
+**Tailwind CSS:** A utility-first CSS framework for rapidly building custom designs.
+
+**React Datepicker:** Powerful and versatile date picker solution for React applications
+
+---
